@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yurineth Vargas Salazar — Diseñadora de Comunicación Gráfica</title>
+  <meta name="description" content="Portafolio de Yurineth Vargas Salazar: diseño gráfico, ilustración, animación, 3D, identidad de marca, interfaces web e indumentaria. Colombia → Chile.">
+  <meta name="theme-color" content="#16005B">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2316005B'/%3E%3Cpath d='M8 8l8 10 8-10M16 18v7' stroke='%23F797F5' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+
+
+  <!-- Tipografías: IBM Plex Sans + Mono (Helvetica Neue se usa desde el sistema) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+
+
+  <link rel="stylesheet" href="style.css">
+
+
+  <noscript><style>.intro{display:none}.reveal{opacity:1;translate:none;filter:none}body.is-intro{overflow:auto}body.is-intro .nav{opacity:1;transform:none}</style></noscript>
+</head>
+<body class="is-intro">
+
+
+  <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+
+  <!-- ==================== INTRO · CARA WIREFRAME ==================== -->
+  <div class="intro" id="intro" role="region" data-i18n-attr="aria-label:intro.label" aria-label="Introducción">
+    <canvas class="intro__canvas" id="intro-canvas" aria-hidden="true"></canvas>
+    <div class="intro__frame corners" aria-hidden="true"></div>
+    <div class="intro__hud" aria-hidden="true">
+      <span>YVS // PERCEPTION_SYS v1.0</span>
+      <span id="intro-count">MESH 0000 VTX</span>
+    </div>
+    <div class="intro__console" aria-live="polite">
+      <p class="intro__line" data-intro-line="boot" data-i18n="intro.boot">&gt; inicializando percepción…</p>
+      <p class="intro__line" data-intro-line="scan" data-i18n="intro.scan">&gt; escaneando malla facial…</p>
+      <p class="intro__line intro__line--hot" data-intro-line="detected" data-i18n="intro.detected">&gt; rostro detectado // bienvenida</p>
+    </div>
+    <button class="intro__skip" type="button" id="intro-skip">
+      <span data-i18n="intro.skip">Saltar intro</span> <kbd aria-hidden="true">↵</kbd>
+    </button>
+  </div>
+
+
+  <!-- ==================== ATMÓSFERA ==================== -->
+  <canvas class="bg-canvas" id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-glow" aria-hidden="true"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><div class="cursor__ring"></div></div>
+
+
+  <!-- ==================== NAVEGACIÓN ==================== -->
+  <header class="nav" id="nav" data-intro-inert>
+    <div class="nav__inner glass">
+      <a href="#top" class="nav__logo" data-i18n-attr="aria-label:nav.home" aria-label="Inicio">YVS<span class="blink">_</span></a>
+
+
+      <nav class="nav__menu" id="nav-menu" data-i18n-attr="aria-label:nav.label" aria-label="Principal">
+        <a href="#proyectos" class="nav__link" data-i18n="nav.projects">Proyectos</a>
+        <a href="#sobre-mi" class="nav__link" data-i18n="nav.about">Sobre mí</a>
+        <a href="#contacto" class="nav__link" data-i18n="nav.contact">Contacto</a>
+      </nav>
+
+
+      <div class="nav__actions">
+        <button class="gesture-btn" id="gesture-btn" type="button" aria-expanded="false" aria-controls="gesture-panel">
+          <span class="gesture-btn__dot" aria-hidden="true"></span>
+          <span class="gesture-btn__label" data-i18n="nav.gestures">Gestos</span>
+        </button>
+
+
+        <div class="lang" role="group" data-i18n-attr="aria-label:nav.langLabel" aria-label="Idioma">
+          <button type="button" class="lang__btn" data-lang="es" aria-pressed="true" lang="es">ES</button>
+          <button type="button" class="lang__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+        </div>
+
+
+        <button class="nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menú">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ==================== PANEL DE GESTOS (conceptual) ==================== -->
+  <aside class="gesture-panel glass" id="gesture-panel" aria-labelledby="gesture-title" hidden>
+    <div class="gesture-panel__head">
+      <p class="gesture-panel__title" id="gesture-title">GESTURE_INTERFACE // v0.1</p>
+      <span class="badge" data-i18n="gesture.badge">beta</span>
+      <button class="gesture-panel__close" id="gesture-close" type="button" data-i18n-attr="aria-label:gesture.close" aria-label="Cerrar panel">✕</button>
+    </div>
+
+
+    <div class="gesture-panel__viz" aria-hidden="true">
+      <span class="gesture-panel__cam" data-i18n="gesture.camera">[ cámara desactivada ]</span>
+      <svg id="hand-svg" viewBox="0 0 100 120"></svg>
+      <span class="gesture-panel__scan"></span>
+    </div>
+
+
+    <p class="gesture-panel__desc" data-i18n="gesture.desc">Muy pronto podrás navegar este portafolio con las manos, usando visión computacional (MediaPipe) desde tu cámara.</p>
+
+
+    <ul class="gesture-list">
+      <li>
+        <button type="button" class="gesture-item" data-gesture="open_palm">
+          <span class="gesture-item__icon" aria-hidden="true">✋</span>
+          <span data-i18n="gesture.items.palm.name">Mano abierta</span>
+          <span class="gesture-item__action">→ <span data-i18n="gesture.items.palm.action">pausar</span></span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="gesture-item" data-gesture="swipe">
+          <span class="gesture-item__icon" aria-hidden="true">👉</span>
+          <span data-i18n="gesture.items.swipe.name">Deslizar</span>
+          <span class="gesture-item__action">→ <span data-i18n="gesture.items.swipe.action">siguiente proyecto</span></span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="gesture-item" data-gesture="pinch">
+          <span class="gesture-item__icon" aria-hidden="true">👌</span>
+          <span data-i18n="gesture.items.pinch.name">Pinza</span>
+          <span class="gesture-item__action">→ <span data-i18n="gesture.items.pinch.action">abrir proyecto</span></span>
+        </button>
+      </li>
+    </ul>
+
+
+    <p class="gesture-panel__hint" data-i18n="gesture.hint">Toca un gesto para simular su acción.</p>
+    <p class="gesture-panel__status">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span data-i18n="gesture.status">estado</span>:
+      <strong data-i18n="gesture.statusValue">próximamente</strong>
+    </p>
+  </aside>
+
+
+  <!-- ==================== CONTENIDO ==================== -->
+  <main id="main" data-intro-inert>
+
+
+    <!-- ---------- PORTADA ---------- -->
+    <section class="hero" id="top">
+      <div class="container">
+        <p class="console-tag reveal" data-i18n="hero.tag">&gt; PERFIL_CARGADO // COL → CHL</p>
+
+
+        <h1 class="hero__title" aria-label="Yurineth Vargas Salazar">
+          <span class="glitch reveal" style="--d:1" data-text="YURINETH" aria-hidden="true">YURINETH</span>
+          <span class="glitch hero__title-2 reveal" style="--d:2" data-text="VARGAS SALAZAR" aria-hidden="true">VARGAS SALAZAR</span>
+        </h1>
+
+
+        <p class="hero__role reveal" style="--d:3" data-i18n="hero.role">Diseñadora de Comunicación Gráfica</p>
+        <p class="hero__rotator reveal" style="--d:4">
+          <span class="hero__prompt" aria-hidden="true">&gt;</span>
+          <span data-i18n="hero.rotatorPrefix">explorando</span>
+          <span id="rotator"></span><span class="caret" aria-hidden="true"></span>
+        </p>
+
+
+        <div class="hero__ctas reveal" style="--d:5">
+          <a class="btn btn--primary" href="#proyectos"><span data-i18n="hero.ctaProjects">Ver proyectos</span> <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="#sobre-mi" data-i18n="hero.ctaAbout">Conóceme</a>
+        </div>
+      </div>
+
+
+      <div class="hero__meta" aria-hidden="true">
+        <span>SYS.ONLINE ●</span>
+        <span data-i18n="hero.meta1">ORIGEN // COLOMBIA</span>
+        <span data-i18n="hero.meta2">BASE // CHILE</span>
+      </div>
+
+
+      <a class="hero__scroll" href="#proyectos" aria-hidden="true" tabindex="-1">
+        <span data-i18n="hero.scroll">scroll</span>
+        <span class="hero__scroll-line"></span>
+      </a>
+    </section>
+
+
+    <!-- ---------- PROYECTOS ---------- -->
+    <section class="section" id="proyectos" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="console-tag" data-i18n="projects.tag">&gt; DIRECTORIO // TRABAJOS</p>
+          <h2 class="section__title" id="projects-title" data-i18n="projects.title">Proyectos</h2>
+          <p class="section__intro" data-i18n="projects.intro">Experimentos entre el diseño, la percepción y la tecnología.</p>
+        </header>
+
+
+        <div class="projects-grid">
+
+
+          <!-- 01 · Dos realidades son infinitas -->
+          <article class="card glass reveal" data-project="dos" data-num="01">
+            <div class="ph ph--vision" aria-hidden="true">
+              <span class="ph__box"><span class="ph__box-label">face 0.98</span></span>
+              <span class="ph__box ph__box--alt"><span class="ph__box-label">hand 0.91</span></span>
+              <span class="ph__scan"></span>
+              <span class="ph__label" data-i18n="projects.placeholder">[ IMG_PLACEHOLDER // reemplazar ]</span>
+            </div>
+            <div class="card__body">
+              <p class="card__label"><span class="card__num">PRJ_01</span> // <span data-i18n="projects.items.dos.label">Web interactiva</span></p>
+              <h3 class="card__title" data-i18n="projects.items.dos.title">Dos realidades son infinitas</h3>
+              <p class="card__text" data-i18n="projects.items.dos.short"></p>
+              <ul class="chips" data-i18n-attr="aria-label:projects.toolsLabel">
+                <li class="chip">GitHub Pages</li><li class="chip">Figma</li><li class="chip">Claude</li><li class="chip">OpenCV</li><li class="chip">MediaPipe</li><li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">JS</li>
+              </ul>
+              <button class="card__open" type="button" data-open="dos" aria-haspopup="dialog">
+                <span data-i18n="projects.open">Ver detalle</span> <span class="arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+            <span class="card__shine" aria-hidden="true"></span>
+          </article>
+
+
+          <!-- 02 · PULSO -->
+          <article class="card glass reveal" style="--d:1" data-project="pulso" data-num="02">
+            <div class="ph ph--pulse" aria-hidden="true">
+              <span class="ph__orb"></span>
+              <div class="ph__bars" data-bars="32"></div>
+              <span class="ph__label" data-i18n="projects.placeholder">[ IMG_PLACEHOLDER // reemplazar ]</span>
+            </div>
+            <div class="card__body">
+              <p class="card__label"><span class="card__num">PRJ_02</span> // <span data-i18n="projects.items.pulso.label">Audiovisual</span></p>
+              <h3 class="card__title" data-i18n="projects.items.pulso.title">PULSO</h3>
+              <p class="card__text" data-i18n="projects.items.pulso.short"></p>
+              <ul class="chips" data-i18n-attr="aria-label:projects.toolsLabel">
+                <li class="chip">GitHub Pages</li><li class="chip">Claude</li><li class="chip">OpenCV</li><li class="chip">MediaPipe</li><li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">JS</li>
+              </ul>
+              <button class="card__open" type="button" data-open="pulso" aria-haspopup="dialog">
+                <span data-i18n="projects.open">Ver detalle</span> <span class="arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+            <span class="card__shine" aria-hidden="true"></span>
+          </article>
+
+
+          <!-- 03 · Senses Party -->
+          <article class="card glass reveal" data-project="senses" data-num="03">
+            <div class="ph ph--party" aria-hidden="true">
+              <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid meet">
+                <g fill="none" stroke-width="1.4">
+                  <path class="link" stroke="#F797F5" d="M70 56 L160 98"/>
+                  <path class="link" stroke="#D45EE5" d="M250 56 L160 98"/>
+                  <path class="link" stroke="#C9A7FF" d="M70 146 L160 98"/>
+                  <path class="link" stroke="#E7B8FF" d="M250 146 L160 98"/>
+                  <rect x="118" y="72" width="84" height="52" rx="5" stroke="#F797F5" fill="rgba(22,0,91,.7)"/>
+                  <path d="M150 132 h20" stroke="#F797F5"/>
+                </g>
+                <g fill="rgba(22,0,91,.8)" stroke-width="1.4">
+                  <rect class="phone" x="55" y="32" width="30" height="48" rx="6" stroke="#F797F5"/>
+                  <rect class="phone" x="235" y="32" width="30" height="48" rx="6" stroke="#D45EE5"/>
+                  <rect class="phone" x="55" y="122" width="30" height="48" rx="6" stroke="#C9A7FF"/>
+                  <rect class="phone" x="235" y="122" width="30" height="48" rx="6" stroke="#E7B8FF"/>
+                </g>
+                <g font-family="IBM Plex Mono, monospace" font-size="9" text-anchor="middle" fill="#F7EEFF">
+                  <text x="70" y="60">P1</text><text x="250" y="60">P2</text>
+                  <text x="70" y="150">P3</text><text x="250" y="150">P4</text>
+                  <text x="160" y="102" fill="#F797F5">● ● ● ●</text>
+                </g>
+              </svg>
+              <span class="ph__label" data-i18n="projects.placeholder">[ IMG_PLACEHOLDER // reemplazar ]</span>
+            </div>
+            <div class="card__body">
+              <p class="card__label"><span class="card__num">PRJ_03</span> // <span data-i18n="projects.items.senses.label">Juego multijugador</span></p>
+              <h3 class="card__title" data-i18n="projects.items.senses.title">Senses Party</h3>
+              <p class="card__text" data-i18n="projects.items.senses.short"></p>
+              <ul class="chips" data-i18n-attr="aria-label:projects.toolsLabel">
+                <li class="chip">GitHub Pages</li><li class="chip">Claude</li><li class="chip">OpenCV</li><li class="chip">MediaPipe</li><li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">JS</li>
+              </ul>
+              <button class="card__open" type="button" data-open="senses" aria-haspopup="dialog">
+                <span data-i18n="projects.open">Ver detalle</span> <span class="arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+            <span class="card__shine" aria-hidden="true"></span>
+          </article>
+
+
+          <!-- 04 · Ser niños -->
+          <article class="card glass reveal" style="--d:1" data-project="ninos" data-num="04">
+            <div class="ph ph--ninos" aria-hidden="true">
+              <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice">
+                <circle class="sketch" cx="236" cy="58" r="22"/>
+                <path class="sketch" d="M0 158 Q 60 122 120 150 T 240 140 T 320 150"/>
+                <path class="sketch" d="M0 182 Q 80 152 160 176 T 320 170" style="animation-delay:.4s"/>
+                <path class="sketch" d="M98 96 Q 120 132 156 150 T 196 176" style="animation-delay:.8s"/>
+                <g class="kite">
+                  <path class="sketch" d="M98 38 L120 64 L98 96 L76 64 Z M98 38 L98 96 M76 64 L120 64" style="animation-delay:.2s"/>
+                  <path class="sketch" d="M98 96 q -9 9 0 17 q 9 9 0 17" style="animation-delay:.6s"/>
+                </g>
+              </svg>
+              <span class="ph__label" data-i18n="projects.placeholder">[ IMG_PLACEHOLDER // reemplazar ]</span>
+            </div>
+            <div class="card__body">
+              <p class="card__label"><span class="card__num">PRJ_04</span> // <span data-i18n="projects.items.ninos.label">Animación</span></p>
+              <h3 class="card__title" data-i18n="projects.items.ninos.title">Ser niños</h3>
+              <p class="card__text" data-i18n="projects.items.ninos.short"></p>
+              <ul class="chips" data-i18n-attr="aria-label:projects.toolsLabel">
+                <li class="chip">Procreate</li><li class="chip">Photoshop</li><li class="chip">After Effects</li><li class="chip">Adobe Premiere</li><li class="chip">Sketch Tools</li>
+              </ul>
+              <button class="card__open" type="button" data-open="ninos" aria-haspopup="dialog">
+                <span data-i18n="projects.open">Ver detalle</span> <span class="arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+            <span class="card__shine" aria-hidden="true"></span>
+          </article>
+
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- SOBRE MÍ ---------- -->
+    <section class="section" id="sobre-mi" aria-labelledby="about-title">
+      <div class="container about__grid">
+
+
+        <figure class="about__portrait reveal">
+          <div class="portrait glass corners">
+            <canvas id="portrait-canvas" aria-hidden="true"></canvas>
+            <div class="portrait__hud" aria-hidden="true"><span>ID // YVS</span><span>REC ●</span></div>
+            <figcaption class="ph__label" data-i18n="about.photo">[ foto ]</figcaption>
+          </div>
+        </figure>
+
+
+        <div class="about__content">
+          <header class="section__head reveal" style="margin-bottom:28px">
+            <p class="console-tag" data-i18n="about.tag">&gt; SOBRE_MÍ // HISTORIA</p>
+            <h2 class="section__title" id="about-title" data-i18n="about.title">Sobre mí</h2>
+          </header>
+
+
+          <p class="about__lead reveal" data-i18n="about.lead"></p>
+          <p class="reveal" data-i18n="about.p1"></p>
+          <p class="reveal" data-i18n="about.p2"></p>
+
+
+          <ol class="timeline glass reveal">
+            <li class="timeline__item">
+              <span class="timeline__node" aria-hidden="true">CO</span>
+              <div>
+                <p class="timeline__tag" data-i18n="about.timeline.fromTag">ORIGEN</p>
+                <h3 class="timeline__place" data-i18n="about.timeline.fromPlace">Colombia</h3>
+                <p class="timeline__text" data-i18n="about.timeline.fromText"></p>
+              </div>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__node" aria-hidden="true">CL</span>
+              <div>
+                <p class="timeline__tag" data-i18n="about.timeline.toTag">PRESENTE</p>
+                <h3 class="timeline__place" data-i18n="about.timeline.toPlace">Chile</h3>
+                <p class="timeline__text" data-i18n="about.timeline.toText"></p>
+              </div>
+            </li>
+          </ol>
+
+
+          <h3 class="about__subtitle reveal" data-i18n="about.disciplinesTitle">Disciplinas</h3>
+          <ul class="chips chips--lg reveal">
+            <li class="chip" data-i18n="about.disciplines.0">Narrativas audiovisuales</li>
+            <li class="chip" data-i18n="about.disciplines.1">Ilustración</li>
+            <li class="chip" data-i18n="about.disciplines.2">Animación</li>
+            <li class="chip" data-i18n="about.disciplines.3">Modelado 3D</li>
+            <li class="chip" data-i18n="about.disciplines.4">Identidad de marca</li>
+            <li class="chip" data-i18n="about.disciplines.5">Interfaces web</li>
+            <li class="chip" data-i18n="about.disciplines.6">Diseño de indumentaria</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ==================== CONTACTO / PIE (rellenar los [ ... ]) ==================== -->
+  <footer class="footer" id="contacto" data-intro-inert>
+    <div class="container">
+      <div class="footer__panel glass reveal">
+        <p class="console-tag" data-i18n="contact.tag">&gt; fin_de_transmisión</p>
+        <h2 class="footer__title" data-i18n="contact.title">¿Creamos algo juntos?</h2>
+        <p class="footer__text" data-i18n="contact.text"></p>
+
+
+        <!-- [rellenar] reemplaza href="#" por mailto:tu@correo.com -->
+        <a class="footer__email bracket" href="#" data-placeholder>[correo@ejemplo.com]</a>
+
+
+        <!-- [rellenar] reemplaza cada href="#" por la URL real -->
+        <ul class="footer__social">
+          <li><a class="bracket" href="#" data-placeholder>[Instagram]</a></li>
+          <li><a class="bracket" href="#" data-placeholder>[Behance]</a></li>
+          <li><a class="bracket" href="#" data-placeholder>[LinkedIn]</a></li>
+          <li><a class="bracket" href="#" data-placeholder>[GitHub]</a></li>
+        </ul>
+      </div>
+
+
+      <div class="footer__bottom">
+        <span class="bracket" data-i18n="contact.location">[Ciudad, Chile]</span>
+        <span>© <span class="bracket" data-i18n="contact.year">[año]</span> Yurineth Vargas Salazar</span>
+        <span data-i18n="contact.credit">Diseñado y desarrollado con HTML, CSS y JavaScript.</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ==================== MODAL DE PROYECTO ==================== -->
+  <dialog class="modal" id="project-modal" aria-labelledby="modal-title">
+    <div class="modal__panel glass">
+      <button class="modal__close" type="button" data-close data-i18n-attr="aria-label:projects.close" aria-label="Cerrar">✕</button>
+      <div class="modal__media" id="modal-media"></div>
+      <div class="modal__body">
+        <p class="card__label" id="modal-label"></p>
+        <h3 class="modal__title" id="modal-title"></h3>
+        <p class="modal__text" id="modal-text"></p>
+        <h4 class="modal__subtitle" data-i18n="projects.toolsLabel">Herramientas</h4>
+        <ul class="chips" id="modal-tools"></ul>
+        <a class="btn btn--primary modal__link" id="modal-link" href="#"></a>
+      </div>
+    </div>
+  </dialog>
+
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+  <!-- ==================== SCRIPT ÚNICO (sin dependencias) ==================== -->
+  <script defer src="script.js"></script>
+</body>
+</html>
