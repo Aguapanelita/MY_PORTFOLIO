@@ -2163,3 +2163,20 @@ h2, h3, .section__subtitle, .card__label, .about__subtitle {
   border: 0;
   border-radius: 12px;
 }
+
+/* Portada del proyecto Ser Niños */
+.ph--ninos {
+  position: relative;
+  overflow: hidden;
+}
+
+.ph--ninos .project-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 2;
+  border-radius: inherit;
+}
