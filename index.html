@@ -8,23 +8,18 @@
   <meta name="theme-color" content="#16005B">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2316005B'/%3E%3Cpath d='M8 8l8 10 8-10M16 18v7' stroke='%23F797F5' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 
-
   <!-- Tipografías: Cormorant Garamond (Editorial) + IBM Plex Sans + Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
 
-
   <link rel="stylesheet" href="style.css">
-
 
   <noscript><style>.intro{display:none}.reveal{opacity:1;translate:none;filter:none}body.is-intro{overflow:auto}body.is-intro .nav{opacity:1;transform:none}</style></noscript>
 </head>
 <body class="is-intro">
 
-
   <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
-
 
   <!-- ==================== INTRO · FLOR DE CEREZO ==================== -->
   <div class="intro" id="intro" role="region" aria-label="Introducción: flor de cerezo">
@@ -42,26 +37,22 @@
     </div>
   </div>
 
-
-    <!-- ==================== ATMÓSFERA ==================== -->
+  <!-- ==================== ATMÓSFERA ==================== -->
   <canvas class="bg-canvas" id="bg-canvas" aria-hidden="true"></canvas>
   <div class="bg-glow" aria-hidden="true"></div>
   <div class="bg-grain" aria-hidden="true"></div>
   <div class="cursor" aria-hidden="true"><div class="cursor__ring"></div></div>
-
 
   <!-- ==================== NAVEGACIÓN ==================== -->
   <header class="nav" id="nav" data-intro-inert>
     <div class="nav__inner glass">
       <a href="#top" class="nav__logo" data-i18n-attr="aria-label:nav.home" aria-label="Inicio">YVS<span class="blink">_</span></a>
 
-
       <nav class="nav__menu" id="nav-menu" data-i18n-attr="aria-label:nav.label" aria-label="Principal">
         <a href="#proyectos" class="nav__link" data-i18n="nav.projects">Proyectos</a>
         <a href="#sobre-mi" class="nav__link" data-i18n="nav.about">Sobre mí</a>
         <a href="#contacto" class="nav__link" data-i18n="nav.contact">Contacto</a>
       </nav>
-
 
       <div class="nav__actions">
         <!-- Conmutador de Tema (Modo Claro / Oscuro) -->
@@ -75,12 +66,10 @@
           <span class="gesture-btn__label" data-i18n="nav.gestures">Gestos</span>
         </button>
 
-
         <div class="lang" role="group" data-i18n-attr="aria-label:nav.langLabel" aria-label="Idioma">
           <button type="button" class="lang__btn" data-lang="es" aria-pressed="true" lang="es">ES</button>
           <button type="button" class="lang__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
         </div>
-
 
         <button class="nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menú">
           <span></span><span></span>
@@ -89,7 +78,6 @@
     </div>
   </header>
 
-
   <!-- ==================== PANEL DE GESTOS (MediaPipe Vision) ==================== -->
   <aside class="gesture-panel glass" id="gesture-panel" aria-labelledby="gesture-title" hidden>
     <div class="gesture-panel__head">
@@ -97,7 +85,6 @@
       <span class="badge" data-i18n="gesture.badge">MediaPipe</span>
       <button class="gesture-panel__close" id="gesture-close" type="button" data-i18n-attr="aria-label:gesture.close" aria-label="Cerrar panel">✕</button>
     </div>
-
 
     <div class="gesture-panel__viz" id="gesture-viz" aria-hidden="true">
       <span class="gesture-panel__cam" id="gesture-cam-label" data-i18n="gesture.camera">[ cámara desactivada ]</span>
@@ -128,7 +115,6 @@
 
     <p class="gesture-panel__desc" data-i18n="gesture.desc">Controla este portafolio con tus manos usando MediaPipe Tasks Vision. Abre la mano para florecer, desliza para cambiar de proyecto y haz pinza para abrirlo.</p>
 
-
     <ul class="gesture-list">
       <li>
         <button type="button" class="gesture-item" data-gesture="open_palm">
@@ -153,7 +139,6 @@
       </li>
     </ul>
 
-
     <p class="gesture-panel__hint">Próximamente</p>
     <p class="gesture-panel__status" id="gesture-status-bar">
       <span class="status-dot" aria-hidden="true"></span>
@@ -162,22 +147,18 @@
     </p>
   </aside>
 
-
   <!-- ==================== CONTENIDO ==================== -->
   <main id="main" data-intro-inert>
-
 
     <!-- ---------- PORTADA ---------- -->
     <section class="hero" id="top">
       <div class="container">
         <p class="console-tag reveal" data-i18n="hero.tag">&gt; PERFIL_CARGADO</p>
 
-
         <h1 class="hero__title" aria-label="Yurineth Vargas Salazar">
           <span class="glitch reveal" style="--d:1" data-text="YURINETH" aria-hidden="true">YURINETH</span>
           <span class="glitch hero__title-2 reveal" style="--d:2" data-text="VARGAS SALAZAR" aria-hidden="true">VARGAS SALAZAR</span>
         </h1>
-
 
         <p class="hero__role reveal" style="--d:3" data-i18n="hero.role">Diseñadora de Comunicación Gráfica</p>
         <p class="hero__rotator reveal" style="--d:4">
@@ -185,7 +166,6 @@
           <span data-i18n="hero.rotatorPrefix">explorando</span>
           <span id="rotator"></span><span class="caret" aria-hidden="true"></span>
         </p>
-
 
         <div class="hero__ctas reveal" style="--d:5">
           <a class="btn btn--primary" href="#proyectos"><span data-i18n="hero.ctaProjects">Ver proyectos</span> <span class="arrow" aria-hidden="true">→</span></a>
@@ -199,7 +179,6 @@
       </a>
     </section>
 
-
     <!-- ---------- PROYECTOS ---------- -->
     <section class="section" id="proyectos" aria-labelledby="projects-title">
       <div class="container">
@@ -209,9 +188,7 @@
           <p class="section__intro" data-i18n="projects.intro">Experimentos entre el diseño, la percepción y la tecnología.</p>
         </header>
 
-
         <div class="projects-grid">
-
 
           <!-- 01 · Dos realidades son infinitas -->
           <article class="card glass reveal" data-project="dos" data-num="01">
@@ -235,7 +212,6 @@
             <span class="card__shine" aria-hidden="true"></span>
           </article>
 
-
           <!-- 02 · PULSO -->
           <article class="card glass reveal" style="--d:1" data-project="pulso" data-num="02">
             <div class="ph ph--pulse">
@@ -258,7 +234,6 @@
             </div>
             <span class="card__shine" aria-hidden="true"></span>
           </article>
-
 
           <!-- 03 · Senses Party -->
           <article class="card glass reveal" data-project="senses" data-num="03">
@@ -300,7 +275,6 @@
             <span class="card__shine" aria-hidden="true"></span>
           </article>
 
-
           <!-- 04 · Ser niños -->
           <article class="card glass reveal" style="--d:1" data-project="ninos" data-num="04">
             <div class="ph ph--ninos">
@@ -325,8 +299,6 @@
             </div>
             <span class="card__shine" aria-hidden="true"></span>
           </article>
-
-
 
           <!-- 05 · Oskowampik -->
           <article class="card glass reveal" style="--d:2" data-project="oskowampik" data-num="05">
@@ -368,16 +340,50 @@
             <span class="card__shine" aria-hidden="true"></span>
           </article>
 
+          <!-- 06 · Los ecosistemas de Colombia -->
+          <article class="card glass reveal" style="--d:3" data-project="biodiversidad" data-num="06">
+            <div class="ph ph--ecosistemas">
+              <div class="biodiversidad-cover">
+                <span class="biodiversidad-cover__eyebrow">PROYECTO EN DESARROLLO</span>
+                <h2 class="biodiversidad-cover__title">LOS ECOSISTEMAS<br>DE COLOMBIA</h2>
+                <span class="biodiversidad-cover__status">EN PROCESO</span>
+              </div>
+            </div>
+
+            <div class="card__body">
+              <p class="card__label">
+                <span class="card__num">PRJ_06</span> // <span>2D Animation</span>
+              </p>
+
+              <h3 class="card__title">Los ecosistemas de Colombia</h3>
+
+              <p class="card__text">Colombia es sinónimo de riqueza natural, pero ¿realmente conocemos lo que protegemos? “Los ecosistemas de Colombia” es un viaje visual por nuestra pluralidad de biomas, diseñado no solo para mostrar su belleza, sino para revelar su estado actual y despertar una conciencia real sobre el territorio que habitamos. ¿Sabías, por ejemplo, que el ecosistema marino conforma el 45% del territorio colombiano?</p>
+
+              <ul class="chips" aria-label="Herramientas utilizadas">
+                <li class="chip">Adobe After Effects</li>
+                <li class="chip">Photoshop</li>
+                <li class="chip">Adobe Premiere</li>
+                <li class="chip">Procreate</li>
+                <li class="chip">Illustrator</li>
+                <li class="chip">Audacity</li>
+              </ul>
+
+              <button class="card__open" type="button" data-open="biodiversidad" aria-haspopup="dialog">
+                <span>Ver detalle</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+
+            <span class="card__shine" aria-hidden="true"></span>
+          </article>
 
         </div>
       </div>
     </section>
 
-
     <!-- ---------- SOBRE MÍ ---------- -->
     <section class="section" id="sobre-mi" aria-labelledby="about-title">
       <div class="container about__grid">
-
 
         <figure class="about__portrait reveal">
           <div class="portrait glass corners">
@@ -387,18 +393,15 @@
           </div>
         </figure>
 
-
         <div class="about__content">
           <header class="section__head reveal" style="margin-bottom:28px">
             <p class="console-tag" data-i18n="about.tag">&gt; SOBRE_MÍ // HISTORIA</p>
             <h2 class="section__title" id="about-title" data-i18n="about.title">Sobre mí</h2>
           </header>
 
-
           <p class="about__lead reveal" data-i18n="about.lead"></p>
           <p class="reveal" data-i18n="about.p1"></p>
           <p class="reveal" data-i18n="about.p2"></p>
-
 
           <ol class="timeline glass reveal">
             <li class="timeline__item">
@@ -419,7 +422,6 @@
             </li>
           </ol>
 
-
           <h3 class="about__subtitle reveal" data-i18n="about.disciplinesTitle">Disciplinas</h3>
           <ul class="chips chips--lg reveal">
             <li class="chip" data-i18n="about.disciplines.0">Narrativas audiovisuales</li>
@@ -435,39 +437,37 @@
     </section>
   </main>
 
+  <!-- ==================== CONTACTO / PIE ==================== -->
+  <footer class="footer" id="contacto" data-intro-inert>
+    <div class="container">
+      <div class="footer__panel glass reveal">
+        <p class="console-tag" data-i18n="contact.tag">> fin_de_transmisión</p>
+        <h2 class="footer__title" data-i18n="contact.title">¿Creamos algo juntos?</h2>
+        <p class="footer__text" data-i18n="contact.text"></p>
 
-  <!-- ==================== CONTACTO / PIE (rellenar los [ ... ]) ==================== -->
- <footer class="footer" id="contacto" data-intro-inert>
-  <div class="container">
-    <div class="footer__panel glass reveal">
-      <p class="console-tag" data-i18n="contact.tag">> fin_de_transmisión</p>
-      <h2 class="footer__title" data-i18n="contact.title">¿Creamos algo juntos?</h2>
-      <p class="footer__text" data-i18n="contact.text"></p>
+        <a class="footer__email bracket" href="mailto:yuriv2424@gmail.com">
+          yuriv2424@gmail.com
+        </a>
 
-      <a class="footer__email bracket" href="mailto:yuriv2424@gmail.com">
-        yuriv2424@gmail.com
-      </a>
+        <ul class="footer__social">
+          <li>
+            <a class="bracket" href="https://www.instagram.com/yurissdg/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </li>
+          <li>
+            <a class="bracket" href="https://www.behance.net/yurinethvargas24" target="_blank" rel="noopener noreferrer">Behance</a>
+          </li>
+          <li>
+            <a class="bracket" href="https://github.com/Aguapanelita" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </li>
+        </ul>
+      </div>
 
-      <ul class="footer__social">
-        <li>
-          <a class="bracket" href="https://www.instagram.com/yurissdg/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </li>
-        <li>
-          <a class="bracket" href="https://www.behance.net/yurinethvargas24" target="_blank" rel="noopener noreferrer">Behance</a>
-        </li>
-        <li>
-          <a class="bracket" href="https://github.com/Aguapanelita" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </li>
-      </ul>
+      <div class="footer__bottom">
+        <span class="bracket">Stgo, Chile</span>
+        <span>© 2026 Yurineth</span>
+      </div>
     </div>
-
-    <div class="footer__bottom">
-      <span class="bracket">Stgo, Chile</span>
-      <span>© 2026 Yurineth</span>
-    </div>
-  </div>
-</footer>
-
+  </footer>
 
   <!-- ==================== MODAL DE PROYECTO ==================== -->
   <dialog class="modal" id="project-modal" aria-labelledby="modal-title">
@@ -485,9 +485,7 @@
     </div>
   </dialog>
 
-
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
 
   <!-- ==================== SCRIPT ÚNICO (sin dependencias) ==================== -->
   <script defer src="script.js"></script>
