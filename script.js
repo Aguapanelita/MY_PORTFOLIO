@@ -2210,7 +2210,9 @@ const projectTitle = id === 'oskowampik'
 
 const projectDescription = id === 'oskowampik'
   ? 'Este es un cortometraje motion capture. La historia sigue a dos jóvenes investigadores que se adentran en la cordillera central Colombiana para documentar las tradiciones de una comunidad originaria casi desconocida. Guiados por un misterioso intermediario descubrirán la magia que resguarda este pueblo y el inminente riesgo de que su legado desaparezca para siempre.'
-  : t(base + 'long');
+  : id === 'biodiversidad'
+    ? 'Colombia es sinónimo de riqueza natural, pero ¿realmente conocemos lo que protegemos? “Los ecosistemas de Colombia” es un viaje visual por nuestra pluralidad de biomas, diseñado no solo para mostrar su belleza, sino para revelar su estado actual y despertar una conciencia real sobre el territorio que habitamos. ¿Sabías, por ejemplo, que el ecosistema marino conforma el 45% del territorio colombiano?'
+    : t(base + 'long');
 
 document.getElementById('modal-label').innerHTML =
   '<span class="card__num">PRJ_' + card.dataset.num + '</span> // ' + escapeHtml(projectLabel);
