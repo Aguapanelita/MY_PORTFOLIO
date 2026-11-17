@@ -2229,17 +2229,25 @@ document.getElementById('modal-text').textContent = projectDescription;
     media.innerHTML = '';
 
     
-    if (id === 'ninos' || id === 'oskowampik') {
+    if (id === 'ninos' || id === 'oskowampik' || id === 'biodiversidad') {
       const video = document.createElement('iframe');
 
       video.src = id === 'ninos'
         ? 'https://player.vimeo.com/video/1247494989?title=0&byline=0&portrait=0&autopause=0'
-        : 'https://player.vimeo.com/video/1247582273?autopause=0&player_id=0&app_id=58479';
+        : id === 'oskowampik'
+          ? 'https://player.vimeo.com/video/1247582273?autopause=0&player_id=0&app_id=58479'
+          : 'https://player.vimeo.com/video/1247582560?autopause=0&player_id=0&app_id=58479';
 
-      video.title = id === 'ninos' ? 'Ser Niños' : 'Oskowampik';
+      video.title = id === 'ninos'
+        ? 'Ser Niños'
+        : id === 'oskowampik'
+          ? 'Oskowampik'
+          : 'La biodiversidad de Colombia';
+
       video.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share';
       video.allowFullscreen = true;
       video.loading = 'lazy';
+
       media.appendChild(video);
     } else {
       const ph = card.querySelector('.ph');
@@ -2247,20 +2255,20 @@ document.getElementById('modal-text').textContent = projectDescription;
     }
 
 
-    const link = document.getElementById('modal-link');
-    if (LINKS[id]) {
-      link.href = LINKS[id];
-      link.target = '_blank';
-      link.rel = 'noopener';
-      link.textContent = t('projects.visit') + ' ↗';
-      link.removeAttribute('data-placeholder');
-    } else {
-      link.href = '#';
-      link.removeAttribute('target');
-      link.textContent = t('projects.link');
-      link.setAttribute('data-placeholder', '');
-    }
-  }
+        const link = document.getElementById('modal-link');
+        if (LINKS[id]) {
+          link.href = LINKS[id];
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.textContent = t('projects.visit') + ' ↗';
+          link.removeAttribute('data-placeholder');
+        } else {
+          link.href = '#';
+          link.removeAttribute('target');
+          link.textContent = t('projects.link');
+          link.setAttribute('data-placeholder', '');
+        }
+      }
 
 
   function escapeHtml(str) {
