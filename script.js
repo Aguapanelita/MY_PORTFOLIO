@@ -2160,12 +2160,14 @@
 
   /* [rellenar] Enlaces de cada proyecto (GitHub Pages, video, Behance…).
      Mientras estén vacíos, el botón muestra "[enlace del proyecto]". */
-  const LINKS = {
-    dos: 'https://aguapanelita.github.io/Dos_Realidades/',
-    pulso: 'https://aguapanelita.github.io/PULSO/',
-    senses: 'https://aguapanelita.github.io/Senses_Party/',
-    ninos: 'https://vimeo.com/1247494989?fl=tl&fe=ec&share=copy'
-  };
+   const LINKS = {
+     dos: 'https://aguapanelita.github.io/Dos_Realidades/',
+     pulso: 'https://aguapanelita.github.io/PULSO/',
+     senses: 'https://aguapanelita.github.io/Senses_Party/',
+     ninos: 'https://vimeo.com/1247494989?fl=tl&fe=ec&share=copy',
+     oskowampik: 'https://www.behance.net/gallery/242598803/Oskowampik-la-tierra-Dorada',
+     biodiversidad: 'https://vimeo.com/1247582560'
+   };
 
 
   let cards = [];
