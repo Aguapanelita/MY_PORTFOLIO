@@ -2197,3 +2197,19 @@ h2, h3, .section__subtitle, .card__label, .about__subtitle {
   display: block;
   z-index: 2;
 }
+
+/* Portada del proyecto Oskowampik */
+.ph--oskowampik {
+  position: relative;
+  overflow: hidden;
+}
+
+.ph--oskowampik .project-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 2;
+}
