@@ -2196,12 +2196,28 @@
     const card = cards.find((c) => c.dataset.project === id);
     if (!card) return;
     const base = 'projects.items.' + id + '.';
+    const isOskowampik = id === 'oskowampik';
 
 
-    document.getElementById('modal-label').innerHTML =
-      '<span class="card__num">PRJ_' + card.dataset.num + '</span> // ' + escapeHtml(t(base + 'label'));
-    document.getElementById('modal-title').textContent = t(base + 'title');
-    document.getElementById('modal-text').textContent = t(base + 'long');
+
+const projectLabel = id === 'oskowampik'
+  ? 'Modelado 3D'
+  : t(base + 'label');
+
+const projectTitle = id === 'oskowampik'
+  ? 'Oskowampik'
+  : t(base + 'title');
+
+const projectDescription = id === 'oskowampik'
+  ? 'Este es un cortometraje motion capture. La historia sigue a dos jóvenes investigadores que se adentran en la cordillera central Colombiana para documentar las tradiciones de una comunidad originaria casi desconocida. Guiados por un misterioso intermediario descubrirán la magia que resguarda este pueblo y el inminente riesgo de que su legado desaparezca para siempre.'
+  : t(base + 'long');
+
+document.getElementById('modal-label').innerHTML =
+  '<span class="card__num">PRJ_' + card.dataset.num + '</span> // ' + escapeHtml(projectLabel);
+
+document.getElementById('modal-title').textContent = projectTitle;
+document.getElementById('modal-text').textContent = projectDescription;
+
 
 
     const tools = document.getElementById('modal-tools');
@@ -2212,20 +2228,24 @@
     const media = document.getElementById('modal-media');
     media.innerHTML = '';
 
-    if (id === 'ninos') {
-    const video = document.createElement('iframe');
+    
+    if (id === 'ninos' || id === 'oskowampik') {
+      const video = document.createElement('iframe');
 
-    video.src = 'https://player.vimeo.com/video/1247494989?title=0&byline=0&portrait=0&autopause=0';
-    video.title = 'Ser Niños';
-    video.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share';
-    video.allowFullscreen = true;
-    video.loading = 'lazy';
+      video.src = id === 'ninos'
+        ? 'https://player.vimeo.com/video/1247494989?title=0&byline=0&portrait=0&autopause=0'
+        : 'https://player.vimeo.com/video/1247582273?autopause=0&player_id=0&app_id=58479';
 
-    media.appendChild(video);
+      video.title = id === 'ninos' ? 'Ser Niños' : 'Oskowampik';
+      video.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share';
+      video.allowFullscreen = true;
+      video.loading = 'lazy';
+      media.appendChild(video);
     } else {
-    const ph = card.querySelector('.ph');
-    if (ph) media.appendChild(ph.cloneNode(true));
+      const ph = card.querySelector('.ph');
+      if (ph) media.appendChild(ph.cloneNode(true));
     }
+
 
     const link = document.getElementById('modal-link');
     if (LINKS[id]) {
