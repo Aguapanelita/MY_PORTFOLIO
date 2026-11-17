@@ -2180,3 +2180,20 @@ h2, h3, .section__subtitle, .card__label, .about__subtitle {
   z-index: 2;
   border-radius: inherit;
 }
+
+/* Ajuste de portada PULSO */
+.ph--pulse {
+  position: relative;
+  overflow: hidden;
+}
+
+.ph--pulse .project-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  z-index: 2;
+}
